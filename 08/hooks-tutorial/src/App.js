@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState} from 'react';
 import Info1 from './Info1';
+import Info2 from './Info2';
 import Counter2 from './Counter2';
 
 const App = () => {
@@ -17,7 +18,9 @@ const App = () => {
   //       {visible && <Info1 />}
   //     </div>
   //   )
-  return <Counter2 />
+  
+  //return <Counter2 />
+  return <Info2 />
 };
 
 export default App;
