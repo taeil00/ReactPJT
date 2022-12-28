@@ -1,9 +1,20 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const Info1 = () => {
     const [name, setName] = useState('');
     const [nickname, setNickname] = useState('');
+    useEffect(() => {
+        console.log("effect !");
+        console.log(name);
+
+        //cleanup함수 반환
+        return () => {
+            console.log('cleanup');
+            console.log(name);
+        }
+        
+    }, [name]); // ,[] 주면 맨 처음 렌더링(마운트)될때만 실행 됨. [name] :name값이 바뀌었을때만 실행
 
     const onChangeName = e => {
         setName(e.target.value);
