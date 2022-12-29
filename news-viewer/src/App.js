@@ -2,6 +2,7 @@ import { useState} from 'react';
 import axios from 'axios';
 
 import NewsList from './components/NewsList';
+import Categories from './components/Categories';
 
 const App = () => {
   const [data, setData] = useState(null);
@@ -22,7 +23,12 @@ const App = () => {
   //     {data && <textarea rows={7} value={JSON.stringify(data, null, 2)} readOnly={true} />}
   //   </div>
   // );
-  return <NewsList />;
+  return (
+    <>
+    <Categories />
+    <NewsList />;
+    </>
+  )
 
 };
 
