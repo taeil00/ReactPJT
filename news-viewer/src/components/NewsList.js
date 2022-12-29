@@ -22,22 +22,25 @@ const sampleArticle = {
     urlToImage: 'https://via.placeholder.com/160',
 };
 
-const NewsList = () =>{
+const NewsList = ({category}) =>{
 
     const [articles, setArticles] = useState(null);
     const [loading, setLoading] = useState(false);
 
-    const newsApiURL = "https://newsapi.org/v2/top-headlines?country=kr&apiKey=";
-    const ApiKey = 'b385cdf4f3ce41968dfaaa04b9d83a65';
+    const newsApiURL = "https://newsapi.org/v2/top-headlines?country=kr";
+    const ApiKey = '&apiKey=b385cdf4f3ce41968dfaaa04b9d83a65';
 
     useEffect(()=> {
        
         const fetchData = async () => {
             setLoading(true);
             try{
+                const query = category === 'all' ? '' : `&category=${category}`;
                 const response = await axios.get(
-                    newsApiURL + ApiKey
+                    newsApiURL + query + ApiKey
                 );
+
+                console.log(newsApiURL + query + ApiKey)
 
                 setArticles(response.data.articles);
             }catch(e){
@@ -47,7 +50,7 @@ const NewsList = () =>{
             setLoading(false);
         };
         fetchData();
-    }, []);
+    }, [category]);
 
     if(loading){
         return <NewsListBlock>대기 중...</NewsListBlock>
