@@ -3,6 +3,7 @@ import { useState} from 'react';
 import Info1 from './Info1';
 import Info2 from './Info2';
 import Counter2 from './Counter2';
+import Average1 from './Average1';
 
 const App = () => {
   // const [visible, setVisible] = useState(false);
@@ -20,7 +21,8 @@ const App = () => {
   //   )
   
   //return <Counter2 />
-  return <Info2 />
+  //return <Info2 />
+  return <Average1 />
 };
 
 export default App;
